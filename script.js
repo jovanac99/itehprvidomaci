@@ -1,6 +1,7 @@
 $(document).ready(function () {
     vratiSveDoktore();
     dodajNovogDoktora();
+    obrisiDoktora();
 })
 
 
@@ -48,4 +49,23 @@ function dodajNovogDoktora() {
         })
     })
 
+}
+
+function obrisiDoktora() {
+
+    $(document).on('click', '#btn_delete', function () {
+
+        var id = $(this).attr('value');
+
+        $.ajax({
+            url: 'delete.php',
+            method: 'post',
+            data: { id: id },
+
+            success: function (data) {
+                alert(data);
+                vratiSveDoktore();
+            }
+        })
+    })
 }
