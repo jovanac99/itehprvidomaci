@@ -22,6 +22,8 @@
                 <h2 class="text-center mt-3">Doktor</h2>
                 <form action="" class="text-center">
 
+                    <hidden id="hiddenid" value=""></hidden>
+
                     <div class="form-group mt-3 mb-3">
                         <label for="ime">Ime: </label>
                         <input type="text" class="form-control" id="ime" name="ime">

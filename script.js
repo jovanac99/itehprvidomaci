@@ -2,6 +2,8 @@ $(document).ready(function () {
     vratiSveDoktore();
     dodajNovogDoktora();
     obrisiDoktora();
+    napuniFormu();
+    sacuvajIzmenjenogDoktora();
 })
 
 
@@ -67,5 +69,53 @@ function obrisiDoktora() {
                 vratiSveDoktore();
             }
         })
+    })
+}
+
+function napuniFormu() {
+
+    $(document).on('click', '#btn_edit', function () {
+
+        var id = $(this).attr('value');
+
+        $.ajax({
+            url: 'edit.php',
+            method: 'post',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $('#hiddenid').val(data.id);
+                $('#ime').val(data.ime);
+                $('#prezime').val(data.prezime);
+                $('#specijalizacija').val(data.specijalizacija);
+                $('#ustanova').val(data.ustanova_id);
+                $('#btn_add').hide();
+                $('#btn_update').show();
+            }
+        })
+    })
+}
+
+function sacuvajIzmenjenogDoktora() {
+
+    $(document).on('click', '#btn_update', function () {
+
+        let id = $('#hiddenid').val();
+        let ime = $('#ime').val();
+        let prezime = $('#prezime').val();
+        let specijalizacija = $('#specijalizacija').val();
+        let ustanova_id = $('#ustanova').val();
+
+        $.ajax({
+            url: 'update.php',
+            method: 'post',
+            data: { id: id, ime: ime, prezime: prezime, specijalizacija: specijalizacija, ustanova_id: ustanova_id },
+
+            success: function (data) {
+                alert(data);
+                vratiSveDoktore();
+            }
+        })
+
     })
 }
