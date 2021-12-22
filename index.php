@@ -64,7 +64,11 @@
 
 
         <div class="tabela">
-            <div class="col" style="padding-right: 150px; margin-top:50px;" id="table">
+
+            <h4 style="margin-top:20px;">Pretraga: </h4>
+            <input type="text" id="searchinput">
+
+            <div class="col" style="padding-right: 150px; margin-top:10px;" id="table">
 
             </div>
         </div>

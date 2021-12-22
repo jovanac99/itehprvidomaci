@@ -4,6 +4,7 @@ $(document).ready(function () {
     obrisiDoktora();
     napuniFormu();
     sacuvajIzmenjenogDoktora();
+    pretraziDoktore();
 })
 
 
@@ -117,5 +118,26 @@ function sacuvajIzmenjenogDoktora() {
             }
         })
 
+    })
+}
+
+function pretraziDoktore() {
+
+    $(document).on('keyup', '#searchinput', function () {
+
+        let input = this.value;
+
+        $.ajax(
+            {
+                url: 'getallSearch.php',
+                method: 'post',
+                data: { input: input },
+                success: function (data) {
+                    {
+                        $('#table').html(data);
+                    }
+                }
+            }
+        )
     })
 }
