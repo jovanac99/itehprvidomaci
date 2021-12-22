@@ -1,12 +1,12 @@
 <table class="table table-bordered border-info table-striped mt-2">
     <thead>
         <tr class="text-center table-info">
-            <th>ID</th>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Specijalizacija</th>
-            <th>Ustanova</th>
-            <th>Akcija</th>
+            <th id="id" value="desc">ID</th>
+            <th id="ime" value="desc">Ime</th>
+            <th id="prezime" value="desc">Prezime</th>
+            <th id="specijalizacija" value="desc">Specijalizacija</th>
+            <th id="ustanova_id" value="desc">Ustanova</th>
+            <th id="akcija" value="desc">Akcija</th>
         </tr>
     </thead>
 

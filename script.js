@@ -5,6 +5,7 @@ $(document).ready(function () {
     napuniFormu();
     sacuvajIzmenjenogDoktora();
     pretraziDoktore();
+    sortirajDoktore();
 })
 
 
@@ -139,5 +140,31 @@ function pretraziDoktore() {
                 }
             }
         )
+    })
+}
+
+function sortirajDoktore() {
+
+    $(document).on('click', 'th', function () {
+
+        let id = $(this).attr('id');
+        let poredak = $(this).attr('value');
+
+
+        if (id == 'akcija') {
+            alert('Ova kolona se ne moze sortirati!');
+            return;
+        }
+
+        $.ajax({
+            url: 'getallSort.php',
+            method: 'post',
+            data: { id: id, poredak: poredak },
+
+            success: function (data) {
+                $('#table').html(data);
+            }
+        })
+
     })
 }
